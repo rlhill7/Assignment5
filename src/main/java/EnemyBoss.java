@@ -7,8 +7,9 @@ public class EnemyBoss implements Enemy {
 
     private int level = 5;
     int baseAttack = 10;
-    int baseDefense = 10;
+    int baseDefense = 0;
     int healthPoints = 50;
+    int speed = 100;
 
     @Override
     public void attack(){
@@ -25,43 +26,52 @@ public class EnemyBoss implements Enemy {
 
     @Override
     public int getLevel(){
-     return level;
+     return this.level;
     }
 
     @Override
     public void setLevel(int levelMod){
-        level += levelMod;
+        this.level += levelMod;
     }
 
     @Override
     public int getBaseAttack(){
-        return baseAttack;
+        return this.baseAttack;
     }
 
     @Override
     public void setBaseAttack(int attackModifier){
-        baseAttack += attackModifier;
+        this.baseAttack += attackModifier;
     }
 
     @Override
     public int getBaseDefense() {
-        return baseDefense;
+        return this.baseDefense;
     }
 
     @Override
     public void setBaseDefense(int defenseModifier) {
-        baseDefense += defenseModifier;
+        this.baseDefense += defenseModifier;
     }
 
     @Override
     public int getHealthPoints(){
-        return healthPoints;
+        return this.healthPoints;
     }
 
     public void changeHealthPoints(int healthModifier) {
-        healthPoints += healthModifier;
+        this.healthPoints += healthModifier;
     }
 
+    @Override
+    public void changeSpeed(int speedModifier){
+        this.speed += speedModifier;
+    }
+
+    @Override
+    public int getSpeed(){
+        return this.speed;
+    }
 
 
 

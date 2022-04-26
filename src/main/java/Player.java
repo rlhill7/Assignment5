@@ -14,6 +14,7 @@ public class Player {
     private double xpModifier;
     private int baseAttack;
     private int baseDefence;
+    private int speed = 10;
 
     /**
      * builder for the player using the builder design pattern
@@ -66,6 +67,29 @@ public class Player {
         healthPoints += healthDifference;
     }
 
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    public int getBaseAttack(){
+        return baseAttack;
+    }
+
+    public void setBaseAttack(int attackModifier){
+        baseAttack += attackModifier;
+    }
+
+    public int getBaseDefence(){
+        return baseDefence;
+    }
+
+    public void setBaseDefence(int defenceModifier){
+        baseDefence += defenceModifier;
+    }
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();

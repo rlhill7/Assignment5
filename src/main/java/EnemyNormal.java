@@ -8,7 +8,7 @@ public class EnemyNormal implements Enemy {
     int baseAttack = 2;
     int baseDefense = 0;
     int healthPoints = 10;
-
+    int speed = 1;
 
     @Override
     public void attack(){
@@ -62,6 +62,16 @@ public class EnemyNormal implements Enemy {
 
     public void changeHealthPoints(int healthModifier) {
         healthPoints += healthModifier;
+    }
+
+    @Override
+    public void changeSpeed(int speedModifier){
+        this.speed += speedModifier;
+    }
+
+    @Override
+    public int getSpeed(){
+        return this.speed;
     }
 
 }

@@ -12,13 +12,16 @@ public interface Enemy {
      int getLevel();
     void setLevel(int levelMod);
 
-    public int getBaseAttack();
-    public void setBaseAttack(int attackModifier);
+     int getBaseAttack();
+     void setBaseAttack(int attackModifier);
 
-    public int getBaseDefense();
-    public void setBaseDefense(int defenseModifier);
+     int getBaseDefense();
+     void setBaseDefense(int defenseModifier);
 
-    public int getHealthPoints();
+     int getHealthPoints();
     void changeHealthPoints(int healthModifier);
+
+     int getSpeed();
+    void changeSpeed(int speedModifier);
 
 }
