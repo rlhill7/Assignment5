@@ -8,14 +8,27 @@ public class Combat {
         attackPower = player.getBaseAttack();
         defencePower = enemy.getBaseDefense();
 
+        if (player.skills.get(2) != null){
+            attackPower += 5;
+        }
+
+       if (player.getSkillMeter() >= 10){
+           if (player.skills.get(1) != null){
+               System.out.println("POWER CHORD ATTACK! Your next attack will deal double damage");
+               attackPower = attackPower * player.skills.get(1).skillAttackModifier;
+               player.setSkillMeter(0);
+           }
+       }
+
         if (attackPower > defencePower){
             enemy.changeHealthPoints(defencePower-attackPower);
             damageInflicted = attackPower-defencePower;
+            player.changeSkillMeter(1);
         }
 
         System.out.println("You attacked with a value of " + attackPower + " the enemy defended with a power of "
-        + defencePower + ". " + damageInflicted + " points of damage inflicted! [" + enemy.getHealthPoints()
-        +" hit points remaining]");
+        + defencePower + ". " + damageInflicted + " points of damage to their rep! [" + enemy.getHealthPoints()
+        +" rep remaining]");
 
     }
 
@@ -31,8 +44,8 @@ public class Combat {
         }
 
         System.out.println("Enemy attacked with a value of " + attackPower + " you defended with a power of "
-                + defencePower + ". " + damageInflicted + " points of damage inflicted! [" + player.getHealthPoints()
-        +" hit points remaining]");
+                + defencePower + ". " + damageInflicted + " points of damage to your rep! [" + player.getHealthPoints()
+        +" rep remaining]");
 
     }
 }

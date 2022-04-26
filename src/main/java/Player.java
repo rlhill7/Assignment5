@@ -1,3 +1,8 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * Player class
  * @author Russell Hill
@@ -15,6 +20,8 @@ public class Player {
     private int baseAttack;
     private int baseDefence;
     private int speed = 10;
+    private int skillMeter = 0;
+    public Map<Integer, Skill> skills = new HashMap<>();
 
     /**
      * builder for the player using the builder design pattern
@@ -40,12 +47,22 @@ public class Player {
     }
 
     public void levelUp(){
+        RandomNumberGenerator ran = new RandomNumberGenerator();
+        int skillSeed = ran.randomNumberGenerator(0,10);
+        Skill skill = new Skill();
+        if(skills.get(skillSeed) == null){
+            skill.pickSkill(skillSeed);
+            skills.put(skillSeed, skill);
+        }
         level +=1;
         xp = 0;
         baseAttack +=1;
         baseDefence += 1;
         speed +=1;
         healthPoints += 50;
+        if (healthPoints > 100){
+            healthPoints = 100;
+        }
         System.out.println("**Level up! You are now level " + level
                 + " Attack defence and speed increased by 1**");
     }
@@ -124,5 +141,15 @@ public class Player {
     }
 
 
+    public int getSkillMeter() {
+        return skillMeter;
+    }
 
+    public void setSkillMeter(int skillMeterModifier){
+        skillMeter = skillMeterModifier;
+    }
+
+    public void changeSkillMeter(int skillMeterModifier) {
+        skillMeter += skillMeterModifier;
+    }
 }

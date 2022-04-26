@@ -20,7 +20,7 @@ public class EnemyNormal implements Enemy {
     public String toString(){
         StringBuilder builder = new StringBuilder();
         builder.append("Enemy [Enemy level is: ").append(level).append(", base attack is: ")
-                .append(baseAttack).append(", base defence is: ").append(baseDefense).append(", hitpoints: ")
+                .append(baseAttack).append(", base defence is: ").append(baseDefense).append(", rep: ")
                 .append(healthPoints).append("]");
         return builder.toString();
     }
