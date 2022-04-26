@@ -1,0 +1,68 @@
+/**
+ * Implementation of interface for enemy
+ * Factory design pattern
+ */
+
+public class EnemyBoss implements Enemy {
+
+    private int level = 5;
+    int baseAttack = 10;
+    int baseDefense = 10;
+    int healthPoints = 50;
+
+    @Override
+    public void attack(){
+
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder builder = new StringBuilder();
+        builder.append("Enemy [Enemy level is: ").append(level).append(", base attack is: ")
+                .append(baseAttack).append(", base defence is: ").append(baseDefense).append(", healthpoints remaining: ").append(healthPoints).append("]");
+        return builder.toString();
+    }
+
+    @Override
+    public int getLevel(){
+     return level;
+    }
+
+    @Override
+    public void setLevel(int levelMod){
+        level += levelMod;
+    }
+
+    @Override
+    public int getBaseAttack(){
+        return baseAttack;
+    }
+
+    @Override
+    public void setBaseAttack(int attackModifier){
+        baseAttack += attackModifier;
+    }
+
+    @Override
+    public int getBaseDefense() {
+        return baseDefense;
+    }
+
+    @Override
+    public void setBaseDefense(int defenseModifier) {
+        baseDefense += defenseModifier;
+    }
+
+    @Override
+    public int getHealthPoints(){
+        return healthPoints;
+    }
+
+    public void changeHealthPoints(int healthModifier) {
+        healthPoints += healthModifier;
+    }
+
+
+
+
+}

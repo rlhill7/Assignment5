@@ -5,7 +5,7 @@
 public class Player {
 
     //default player parameters
-    private int hitPoints = 100;
+    private int healthPoints = 100;
     private int level;
     private String playerRace;
     private String playerClass ;
@@ -58,13 +58,21 @@ public class Player {
         this.xp = xp;
     }
 
+    public int getHealthPoints(){
+        return healthPoints;
+    }
+
+    public void changeHealthPoints(int healthDifference){
+        healthPoints += healthDifference;
+    }
+
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append("Player [player level is: ").append(level).append(", race is: ").append(playerRace)
                 .append(", class is: ").append(playerClass).append(", instrument is: ")
                 .append(playerInstrument).append(", xp modifier is: ").append(xpModifier).append(", base attack is: ")
-                .append(baseAttack).append(", base defence is: ").append(baseDefence);
+                .append(baseAttack).append(", base defence is: ").append(baseDefence).append(", healthpoints remaining: ").append(healthPoints).append("]");
         return builder.toString();
     }
 
