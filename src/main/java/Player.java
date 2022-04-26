@@ -39,6 +39,17 @@ public class Player {
         return level;
     }
 
+    public void levelUp(){
+        level +=1;
+        xp = 0;
+        baseAttack +=1;
+        baseDefence += 1;
+        speed +=1;
+        healthPoints += 50;
+        System.out.println("**Level up! You are now level " + level
+                + " Attack defence and speed increased by 1**");
+    }
+
     public String getPlayerRace(){
         return playerRace;
     }
@@ -55,8 +66,12 @@ public class Player {
         return xp;
     }
 
-    public void setXp(double xp) {
-        this.xp = xp;
+    public void changeXp(double xpModifier) {
+        xp += xpModifier;
+    }
+
+    public void resetXp(){
+        xp = 0;
     }
 
     public int getHealthPoints(){
@@ -85,6 +100,14 @@ public class Player {
 
     public int getBaseDefence(){
         return baseDefence;
+    }
+
+    public double getXpModifier(){
+        return xpModifier;
+    }
+
+    public void setXpModifier(double xpModified){
+        xpModifier = xpModified;
     }
 
     public void setBaseDefence(int defenceModifier){

@@ -72,14 +72,17 @@ public class Main {
             System.out.println("\n Your starting class/race/instrument now be chosen");
             System.out.println(player);
 
-            EnemyFactory enemyFactory= new EnemyFactory();
-            Enemy testEnemy = enemyFactory.createEnemy("EnemyBoss");
-            System.out.println(testEnemy);
+            FloorMediator floorMediator = new FloorMediator();
+            floorMediator.runGame(player);
 
-            BattleMediator battleMediator = new BattleMediator();
-            battleMediator.battle(player, testEnemy);
-            System.out.println(testEnemy);
-            System.out.println(player);
+//            EnemyFactory enemyFactory= new EnemyFactory();
+//            Enemy testEnemy = enemyFactory.createEnemy("EnemyBoss");
+//            System.out.println(testEnemy);
+
+//            BattleMediator battleMediator = new BattleMediator();
+//            battleMediator.battle(player, testEnemy);
+//            System.out.println(testEnemy);
+//            System.out.println(player);
 
 
 

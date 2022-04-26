@@ -28,6 +28,7 @@ public  class PlayerBuilder {
         level += race.getLevel();
         playerRace = raceName;
         xpModifier += race.getXpModifier();
+        baseDefense += race.getBaseDefence();
         return this;
     }
 

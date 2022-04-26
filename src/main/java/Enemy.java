@@ -24,4 +24,7 @@ public interface Enemy {
      int getSpeed();
     void changeSpeed(int speedModifier);
 
+    int getXpBaseValue();
+
+
 }

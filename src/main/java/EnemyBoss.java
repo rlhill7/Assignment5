@@ -10,6 +10,7 @@ public class EnemyBoss implements Enemy {
     int baseDefense = 0;
     int healthPoints = 50;
     int speed = 100;
+    int xpBaseValue = 25;
 
     @Override
     public void attack(){
@@ -22,6 +23,11 @@ public class EnemyBoss implements Enemy {
         builder.append("Enemy [Enemy level is: ").append(level).append(", base attack is: ")
                 .append(baseAttack).append(", base defence is: ").append(baseDefense).append(", healthpoints remaining: ").append(healthPoints).append("]");
         return builder.toString();
+    }
+
+    @Override
+    public int getXpBaseValue(){
+        return xpBaseValue;
     }
 
     @Override

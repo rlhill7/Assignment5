@@ -9,6 +9,7 @@ public class EnemyNormal implements Enemy {
     int baseDefense = 0;
     int healthPoints = 10;
     int speed = 1;
+    int xpBaseValue = 10;
 
     @Override
     public void attack(){
@@ -19,11 +20,15 @@ public class EnemyNormal implements Enemy {
     public String toString(){
         StringBuilder builder = new StringBuilder();
         builder.append("Enemy [Enemy level is: ").append(level).append(", base attack is: ")
-                .append(baseAttack).append(", base defence is: ").append(baseDefense).append("]");
+                .append(baseAttack).append(", base defence is: ").append(baseDefense).append(", hitpoints: ")
+                .append(healthPoints).append("]");
         return builder.toString();
     }
 
-
+    @Override
+    public int getXpBaseValue(){
+        return xpBaseValue;
+    }
 
     @Override
     public int getLevel(){

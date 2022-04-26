@@ -9,6 +9,8 @@ public class EnemyElite implements Enemy {
     int baseDefense = 5;
     int healthPoints = 20;
     int speed = 5;
+    int xpBaseValue;
+
     @Override
     public void attack(){
 
@@ -22,7 +24,10 @@ public class EnemyElite implements Enemy {
         return builder.toString();
     }
 
-
+    @Override
+    public int getXpBaseValue(){
+        return xpBaseValue;
+    }
     @Override
     public int getLevel(){
         return this.level;

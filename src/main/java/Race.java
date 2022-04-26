@@ -7,6 +7,7 @@ class Race {
     private int baseAttack;
     private int level = 0;
     private double xpModifier = 0;
+    private int baseDefence;
 
     /**
      * Gets base attack
@@ -14,6 +15,9 @@ class Race {
      */
     public int getBaseAttack() {
         return baseAttack;
+    }
+    public int getBaseDefence(){
+        return baseDefence;
     }
 
     /**
@@ -35,7 +39,8 @@ class Race {
                 break;
 
             case "Elf":
-                baseAttack = 2;
+                baseAttack = 12;
+                baseDefence = 5;
                 level = 5;
                 xpModifier -= .2;
                 break;

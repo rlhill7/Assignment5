@@ -14,7 +14,8 @@ public class Combat {
         }
 
         System.out.println("You attacked with a value of " + attackPower + " the enemy defended with a power of "
-        + defencePower + ". " + damageInflicted + " points of damage inflicted!");
+        + defencePower + ". " + damageInflicted + " points of damage inflicted! [" + enemy.getHealthPoints()
+        +" hit points remaining]");
 
     }
 
@@ -25,10 +26,13 @@ public class Combat {
         if (attackPower > defencePower){
            player.changeHealthPoints(defencePower-attackPower);
             damageInflicted = attackPower-defencePower;
+        } else {
+            damageInflicted = 0;
         }
 
         System.out.println("Enemy attacked with a value of " + attackPower + " you defended with a power of "
-                + defencePower + ". " + damageInflicted + " points of damage inflicted!");
+                + defencePower + ". " + damageInflicted + " points of damage inflicted! [" + player.getHealthPoints()
+        +" hit points remaining]");
 
     }
 }

@@ -1,34 +1,49 @@
+/**
+ * Mediator pattern to direct the flow of combat.
+ */
 public class BattleMediator {
     private Player player;
     private Enemy enemy;
     private Floor floor;
-    private boolean playerFirstAttack = false;
+    private boolean didPlayerAttackLast = false;
 
-    public void battle(Player player, Enemy enemy){
+    /**
+     * Conducts a battle between the player and enemy.
+     * @param player the player surrogate
+     * @param enemy The enemy to be battled
+     */
+    public boolean battle(Player player, Enemy enemy){
 
     Combat combat = new Combat();
 
+    // checks who goes first then performs an attack
     if (player.getSpeed() >= enemy.getSpeed()){
         combat.basicAttackPlayer(player, enemy);
-        playerFirstAttack = true;
+        didPlayerAttackLast = true;
     }
-    combat.basicAttackEnemy(player,enemy);
+    if(enemy.getHealthPoints()>0) {
+        combat.basicAttackEnemy(player, enemy);
+    }
+    didPlayerAttackLast = false;
+    //checks if enemy is dead, if not continues battle
     while(enemy.getHealthPoints()>0){
-        if (playerFirstAttack == true){
+        if (didPlayerAttackLast == false){
             combat.basicAttackPlayer(player, enemy);
-            combat.basicAttackEnemy(player, enemy);
+            didPlayerAttackLast = true;
             if (player.getHealthPoints()<=0){
                 System.out.println("You lost the combat");
-                break;
+                return false;
             }
         }
-        combat.basicAttackEnemy(player, enemy);
+        if(enemy.getHealthPoints() > 0) {
+            combat.basicAttackEnemy(player, enemy);
+            didPlayerAttackLast = false;
+        }
         if (player.getHealthPoints()<=0){
             System.out.println("You lost the combat");
-            break;
+            return false;
         }
-        combat.basicAttackPlayer(player, enemy);
-    }
-
+        }
+    return true;
     }
 }
