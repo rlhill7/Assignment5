@@ -1,29 +1,52 @@
+/**
+ * Builder class for the Player
+ * Uses builder design pattern
+ */
 public  class PlayerBuilder {
     int level;
-    Race playerRace;
-    Class playerClass ;
-    Instrument playerInstrument;
+    int baseAttack = 0;
+    int baseDefense = 0;
+    String playerRace;
+    String playerClass ;
+    String playerInstrument;
+    double xpModifier = 1.00;
+
 
     public PlayerBuilder(){
         super();
     }
+
+
     public PlayerBuilder level(int level) {
         this.level = level;
         return this;
     }
 
-    public PlayerBuilder playerRace(Race race){
-        this.playerRace =  race;
+    public PlayerBuilder playerRace(String raceName){
+        Race race = new Race(raceName);
+        baseAttack += race.getBaseAttack();
+        level += race.getLevel();
+        playerRace = raceName;
+        xpModifier += race.getXpModifier();
         return this;
     }
 
-    public PlayerBuilder playerClass(Class playerClass){
-        this.playerClass = playerClass;
+    public PlayerBuilder playerClass(String classInput){
+        PlayerClass Class = new PlayerClass(classInput);
+        baseAttack += Class.getBaseAttack();
+        level += Class.getLevel();
+        xpModifier += Class.getXpModifier();
+        playerClass = classInput;
         return this;
     }
 
-    public PlayerBuilder playerInstrument (Instrument playerInstrument){
-        this.playerInstrument = playerInstrument;
+    public PlayerBuilder playerInstrument (String instrumentInput){
+        Instrument instrument = new Instrument(instrumentInput);
+        baseAttack += instrument.getBaseAttack();
+        level += instrument.getLevel();
+        xpModifier += instrument.getXpModifier();
+        baseDefense += instrument.getBaseDefense();
+        playerInstrument = instrumentInput;
         return this;
     }
 

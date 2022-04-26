@@ -5,6 +5,17 @@
 
 public class Main {
         public static void main(String[] args){
-            System.out.println("Hiya folks");
-    }
+
+            PlayerBuilder builder = new PlayerBuilder();
+            builder.level = 1;
+            builder.playerRace("Elf");
+            builder.playerInstrument("Piano");
+            builder.playerClass("ChoirBoy");
+            Player player = new Player(builder);
+
+            builder.build();
+            System.out.println(player);
+
+
+        }
 }
