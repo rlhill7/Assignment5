@@ -1,13 +1,19 @@
 package main;
 
 /**
- * main.Enemy factory
+ * Enemy factory.
  */
 
 public class EnemyFactory {
-    public Enemy createEnemy(String enemyType){
-        if (enemyType == null || enemyType.isEmpty())
+    /**
+     * Creates the enemies.
+     * @param enemyType the type of enemy to be created
+     * @return the enemy created
+     */
+    public Enemy createEnemy(String enemyType) {
+        if (enemyType == null || enemyType.isEmpty()) {
             return null;
+        }
         switch (enemyType) {
             case "main.EnemyBoss":
                 return new EnemyBoss();

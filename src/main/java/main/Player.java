@@ -13,7 +13,7 @@ public class Player {
     private int healthPoints = 100;
     private int level;
     private String playerRace;
-    private String playerClass ;
+    private String playerClass;
     private String playerInstrument;
     private double xp;
     private double xpModifier;
@@ -24,7 +24,7 @@ public class Player {
     public Map<Integer, Skill> skills = new HashMap<>();
 
     /**
-     * builder for the player using the builder design pattern
+     * builder for the player using the builder design pattern.
      * @param playerBuilder the player builder object
      */
     public Player(PlayerBuilder playerBuilder) {
@@ -42,40 +42,43 @@ public class Player {
 
     }
 
-    public int getPlayerLevel(){
+    public int getPlayerLevel() {
         return level;
     }
 
-    public void levelUp(){
+    /**
+     * Method for leveling the player up.
+     */
+    public void levelUp() {
         RandomNumberGenerator ran = new RandomNumberGenerator();
         int skillSeed = ran.randomNumberGenerator(0,10);
         Skill skill = new Skill();
-        if(skills.get(skillSeed) == null){
+        if (skills.get(skillSeed) == null) {
             skill.pickSkill(skillSeed);
             skills.put(skillSeed, skill);
         }
-        level +=1;
+        level += 1;
         xp = 0;
-        baseAttack +=1;
+        baseAttack += 1;
         baseDefence += 1;
-        speed +=1;
+        speed += 1;
         healthPoints += 50;
-        if (healthPoints > 100){
+        if (healthPoints > 100) {
             healthPoints = 100;
         }
         System.out.println("**Level up! You are now level " + level
                 + " Attack defence and speed increased by 1**");
     }
 
-    public String getPlayerRace(){
+    public String getPlayerRace() {
         return playerRace;
     }
 
-    public String getPlayerClass(){
+    public String getPlayerClass() {
         return playerClass;
     }
 
-    public String getPlayerInstrument(){
+    public String getPlayerInstrument() {
         return playerInstrument;
     }
 
@@ -87,15 +90,15 @@ public class Player {
         xp += xpModifier;
     }
 
-    public void resetXp(){
+    public void resetXp() {
         xp = 0;
     }
 
-    public int getHealthPoints(){
+    public int getHealthPoints() {
         return healthPoints;
     }
 
-    public void changeHealthPoints(int healthDifference){
+    public void changeHealthPoints(int healthDifference) {
         healthPoints += healthDifference;
     }
 
@@ -107,36 +110,40 @@ public class Player {
         this.speed = speed;
     }
 
-    public int getBaseAttack(){
+    public int getBaseAttack() {
         return baseAttack;
     }
 
-    public void setBaseAttack(int attackModifier){
+    public void setBaseAttack(int attackModifier) {
         baseAttack += attackModifier;
     }
 
-    public int getBaseDefence(){
+    public int getBaseDefence() {
         return baseDefence;
     }
 
-    public double getXpModifier(){
+    public double getXpModifier() {
         return xpModifier;
     }
 
-    public void setXpModifier(double xpModified){
+    public void setXpModifier(double xpModified) {
         xpModifier = xpModified;
     }
 
-    public void setBaseDefence(int defenceModifier){
+    public void setBaseDefence(int defenceModifier) {
         baseDefence += defenceModifier;
     }
+
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        builder.append("main.Player [player level is: ").append(level).append(", race is: ").append(playerRace)
+        builder.append("main.Player [player level is: ").append(level)
+                .append(", race is: ").append(playerRace)
                 .append(", class is: ").append(playerClass).append(", instrument is: ")
-                .append(playerInstrument).append(", xp modifier is: ").append(xpModifier).append(", base attack is: ")
-                .append(baseAttack).append(", base defence is: ").append(baseDefence).append(", healthpoints remaining: ").append(healthPoints).append("]");
+                .append(playerInstrument).append(", xp modifier is: ").append(xpModifier)
+                .append(", base attack is: ")
+                .append(baseAttack).append(", base defence is: ").append(baseDefence)
+                .append(", healthpoints remaining: ").append(healthPoints).append("]");
         return builder.toString();
     }
 
@@ -145,7 +152,7 @@ public class Player {
         return skillMeter;
     }
 
-    public void setSkillMeter(int skillMeterModifier){
+    public void setSkillMeter(int skillMeterModifier) {
         skillMeter = skillMeterModifier;
     }
 

@@ -1,8 +1,8 @@
 package main;
 
 /**
- * Interface for enemies
- * Implements factory design patterns
+ * Interface for enemies.
+ * Implements factory design patterns.
  */
 
 public interface Enemy {
@@ -11,19 +11,24 @@ public interface Enemy {
 
     String toString();
 
-     int getLevel();
+    int getLevel();
+
     void setLevel(int levelMod);
 
-     int getBaseAttack();
-     void setBaseAttack(int attackModifier);
+    int getBaseAttack();
 
-     int getBaseDefense();
-     void setBaseDefense(int defenseModifier);
+    void setBaseAttack(int attackModifier);
 
-     int getHealthPoints();
+    int getBaseDefense();
+
+    void setBaseDefense(int defenseModifier);
+
+    int getHealthPoints();
+
     void changeHealthPoints(int healthModifier);
 
-     int getSpeed();
+    int getSpeed();
+
     void changeSpeed(int speedModifier);
 
     int getXpBaseValue();

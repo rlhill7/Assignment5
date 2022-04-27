@@ -11,7 +11,11 @@ public class PlayerClass {
     private double xpModifier = 0;
     private int level = 0;
 
-    public PlayerClass(String playerClass){
+    /**
+     * Selects the players class.
+     * @param playerClass The class to be chosen
+     */
+    public PlayerClass(String playerClass) {
         this.className = playerClass;
 
         switch (className) {
@@ -35,6 +39,8 @@ public class PlayerClass {
                 baseAttack = 5;
                 level = 4;
                 xpModifier -= .3;
+                break;
+            default:
                 break;
         }
     }

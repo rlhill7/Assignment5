@@ -1,15 +1,21 @@
 package main;
 
+/**
+ * The instrument class.
+ */
 public class Instrument {
 
-    private String instrumentName = "";
     private int baseAttack = 0;
     private double xpModifier = 0;
     private int level = 0;
     private int baseDefense = 0;
 
-    public Instrument(String instrumentInput){
-        this.instrumentName = instrumentInput;
+    /**
+     * Instrument constructor.
+     * @param instrumentInput The instrument type
+     */
+    public Instrument(String instrumentInput) {
+
 
         switch (instrumentInput) {
             case "Spoons":
@@ -18,7 +24,7 @@ public class Instrument {
 
             case "Cello":
                 baseAttack += 4;
-                baseDefense +=2;
+                baseDefense += 2;
                 break;
 
             case "Guitar":
@@ -29,8 +35,10 @@ public class Instrument {
 
             case "Piano":
                 baseAttack += 3;
-                baseDefense +=5;
+                baseDefense += 5;
                 xpModifier += .2;
+                break;
+            default:
                 break;
         }
     }
@@ -46,7 +54,8 @@ public class Instrument {
     public int getLevel() {
         return level;
     }
-    public int getBaseDefense(){
+
+    public int getBaseDefense() {
         return baseDefense;
     }
 }

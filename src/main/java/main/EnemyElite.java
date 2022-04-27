@@ -14,12 +14,12 @@ public class EnemyElite implements Enemy {
     int xpBaseValue;
 
     @Override
-    public void attack(){
+    public void attack() {
 
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append("Elite Enemy [Elite level is: ").append(level).append(", base attack is: ")
                 .append(baseAttack).append(", base defence is: ").append(baseDefense)
@@ -28,26 +28,27 @@ public class EnemyElite implements Enemy {
     }
 
     @Override
-    public int getXpBaseValue(){
+    public int getXpBaseValue() {
         return xpBaseValue;
     }
+
     @Override
-    public int getLevel(){
+    public int getLevel() {
         return this.level;
     }
 
     @Override
-    public void setLevel(int levelMod){
+    public void setLevel(int levelMod) {
         this.level += levelMod;
     }
 
     @Override
-    public int getBaseAttack(){
+    public int getBaseAttack() {
         return this.baseAttack;
     }
 
     @Override
-    public void setBaseAttack(int attackModifier){
+    public void setBaseAttack(int attackModifier) {
         this.baseAttack += attackModifier;
     }
 
@@ -62,21 +63,22 @@ public class EnemyElite implements Enemy {
     }
 
     @Override
-    public int getHealthPoints(){
+    public int getHealthPoints() {
         return this.healthPoints;
     }
+
     @Override
     public void changeHealthPoints(int healthModifier) {
         this.healthPoints += healthModifier;
     }
 
     @Override
-    public void changeSpeed(int speedModifier){
+    public void changeSpeed(int speedModifier) {
         this.speed += speedModifier;
     }
 
     @Override
-    public int getSpeed(){
+    public int getSpeed() {
         return this.speed;
     }
 

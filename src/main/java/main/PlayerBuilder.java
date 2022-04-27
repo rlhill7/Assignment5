@@ -9,12 +9,12 @@ public  class PlayerBuilder {
     public int baseAttack = 0;
     public int baseDefense = 0;
     public String playerRace;
-    public String playerClass ;
+    public String playerClass;
     public String playerInstrument;
     public double xpModifier = 1.00;
 
 
-    public PlayerBuilder(){
+    public PlayerBuilder() {
         super();
     }
 
@@ -24,7 +24,13 @@ public  class PlayerBuilder {
         return this;
     }
 
-    public PlayerBuilder playerRace(String raceName){
+    /**
+     * Create the players race.
+     * @param raceName Race chosen
+     * @return The playerbuilder
+     */
+
+    public PlayerBuilder playerRace(String raceName) {
         Race race = new Race(raceName);
         baseAttack += race.getBaseAttack();
         level += race.getLevel();
@@ -34,16 +40,26 @@ public  class PlayerBuilder {
         return this;
     }
 
-    public PlayerBuilder playerClass(String classInput){
-        PlayerClass Class = new PlayerClass(classInput);
-        baseAttack += Class.getBaseAttack();
-        level += Class.getLevel();
-        xpModifier += Class.getXpModifier();
+    /**
+     * Create the players class.
+     * @param classInput The class chosen
+     * @return The playerbuilder
+     */
+    public PlayerBuilder playerClass(String classInput) {
+        PlayerClass thisClass = new PlayerClass(classInput);
+        baseAttack += thisClass.getBaseAttack();
+        level += thisClass.getLevel();
+        xpModifier += thisClass.getXpModifier();
         playerClass = classInput;
         return this;
     }
 
-    public PlayerBuilder playerInstrument (String instrumentInput){
+    /**
+     * Create the players instrument.
+     * @param instrumentInput The instrument to be created.
+     * @return the player builder.
+     */
+    public PlayerBuilder playerInstrument(String instrumentInput) {
         Instrument instrument = new Instrument(instrumentInput);
         baseAttack += instrument.getBaseAttack();
         level += instrument.getLevel();
@@ -53,9 +69,13 @@ public  class PlayerBuilder {
         return this;
     }
 
-    public Player build(){
+    /**
+     * Builds the player object.
+     * @return The player
+     */
+    public Player build() {
         Player play = null;
-        if (validatePLayer()){
+        if (validatePLayer()) {
             play = new Player(this);
         } else {
             System.out.println("Please provide required details");
@@ -63,7 +83,8 @@ public  class PlayerBuilder {
         return play;
     }
 
-    private boolean validatePLayer(){
-        return (level > -1 && playerRace != null &&playerInstrument != null && playerClass!= null);
+    private boolean validatePLayer() {
+        return (level > -1 && playerRace != null && playerInstrument != null
+                && playerClass != null);
     }
 }

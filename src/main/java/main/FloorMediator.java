@@ -1,16 +1,19 @@
 package main;
 
 /**
- * Mediator design pattern to run the floors
- * main.Floor is made up of 4 levels
- * Enemies scale up on each floor
+ * Mediator design pattern to run the floors.
+ * Floor is made up of 4 levels.
+ * Enemies scale up on each floor.
  */
 
 public class FloorMediator {
-    private Player player;
-    private Floor floor;
+
     int mercyRule;
 
+    /**
+     * Mediates the playing of the game.
+     * @param player the player that was generated
+     */
     public void runGame(Player player) {
 
         RandomNumberGenerator ran = new RandomNumberGenerator();
@@ -27,14 +30,14 @@ public class FloorMediator {
             int floorSeed = ran.randomNumberGenerator(0,2);
             floor.getFloorMods(floorSeed);
             player.setBaseAttack(floor.getFloorAttackPowerModifier());
-            player.setXpModifier(player.getXpModifier()+floor.getFloorXpModifier());
+            player.setXpModifier(player.getXpModifier() + floor.getFloorXpModifier());
             player.setBaseDefence(floor.getFloorDefensePowerModifier());
             Enemy testEnemy;
             //loops through the levels on a floor generating enemies to fight
             while (floor.getLevelNumber() < 4) {
-                if (ran.randomNumberGenerator(0,10) > 7){
+                if (ran.randomNumberGenerator(0,10) > 7) {
                     testEnemy = enemyFactory.createEnemy("main.EnemyElite");
-                }else {
+                } else {
                     testEnemy = enemyFactory.createEnemy("main.EnemyNormal");
                 }
                 testEnemy.changeHealthPoints((2 * floor.getFloorNumber() + floor.getLevelNumber()));
@@ -42,19 +45,20 @@ public class FloorMediator {
                 if (battleMediator.battle(player, testEnemy)) {
                     floor.changeLevelNumber(1);
                     player.changeXp(testEnemy.getXpBaseValue() * player.getXpModifier());
-                    if (player.getXp() > 100){
+                    if (player.getXp() > 100) {
                         player.levelUp();
                     }
                 } else {
                     //if a player loses a floor more than ten times then the game is over
-                    if (mercyRule > 10){
-                        System.out.println("Looks like you might be tone deaf. Why you got in the fiddle battle" +
-                                " with the devil in the first place is yet to be discovered.\n" +
-                                "**GAME OVER**\n Character was unable to progress through hell.");
+                    if (mercyRule > 10) {
+                        System.out.println("Looks like you might be tone deaf. "
+                                + "Why you got in the fiddle battle"
+                                + " with the devil in the first place is yet to be discovered.\n"
+                                + "**GAME OVER**\n Character was unable to progress through hell.");
                         System.exit(0);
                     }
                     floor.changeLevelNumber(-floor.getLevelNumber());
-                    mercyRule +=1;
+                    mercyRule += 1;
                 }
             }
 
@@ -63,7 +67,7 @@ public class FloorMediator {
             Enemy bossEnemy = enemyFactory.createEnemy("main.EnemyBoss");
             if (battleMediator.battle(player, bossEnemy)) {
                 //removes the floor attributes
-                player.setXpModifier(player.getXpModifier()-floor.getFloorXpModifier());
+                player.setXpModifier(player.getXpModifier() - floor.getFloorXpModifier());
                 player.setBaseDefence(-floor.getFloorDefensePowerModifier());
                 player.setBaseAttack(-floor.getFloorAttackPowerModifier());
 
@@ -71,16 +75,17 @@ public class FloorMediator {
                 floor.changeFloorNumber(1);
                 floor.changeLevelNumber(-4);
                 player.changeXp((bossEnemy.getXpBaseValue() * player.getXpModifier()));
-                if (player.getXp() > 100){
+                if (player.getXp() > 100) {
                     player.levelUp();
 
                 }
             } else {
                 //if the player loses the run is over
                 System.out.println("You have lost the rock off against the boss... Hope you like"
-                        + " fiddle music because you're going to be here a while.\n **GAME OVER**\n" +
-                        "You made it to floor: " + floor.getFloorNumber() + "\nYou were level: "
-                + player.getPlayerLevel());
+                        + " fiddle music because you're going to be here a while."
+                        + "\n **GAME OVER**\n"
+                        + "You made it to floor: " + floor.getFloorNumber() + "\nYou were level: "
+                    + player.getPlayerLevel());
                 System.exit(0);
             }
         }
