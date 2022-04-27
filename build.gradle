@@ -5,7 +5,7 @@ plugins {
 apply plugin: 'application'
 apply plugin: 'jacoco'
 
-mainClassName = 'Main'
+mainClassName = 'main.Main'
 
 repositories {
     jcenter()
@@ -15,6 +15,9 @@ dependencies {
     compile "junit:junit:4.12"
 }
 
+//test {
+//   // exclude
+//}
 
 //Configure Checkstyle
 apply plugin: 'checkstyle'

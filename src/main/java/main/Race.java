@@ -1,5 +1,7 @@
+package main;
+
 /**
- * Race class
+ * main.Race class
  * @author Russell Hill
   */
 class Race {
@@ -10,21 +12,22 @@ class Race {
     private int baseDefence;
 
     /**
-     * Gets base attack
+     * Gets base attack.
      * @return Base attack
      */
     public int getBaseAttack() {
         return baseAttack;
     }
-    public int getBaseDefence(){
+
+    public int getBaseDefence() {
         return baseDefence;
     }
 
     /**
-     * Constructor for race obj
+     * Constructor for race obj.
      * @param playerRace the race in string format
      */
-    public Race(String playerRace){
+    public Race(String playerRace) {
         this.raceName = playerRace;
 
         switch (raceName) {
@@ -44,11 +47,13 @@ class Race {
                 level = 5;
                 xpModifier -= .2;
                 break;
+            default:
+                break;
         }
     }
 
     /**
-     * Get level
+     * Get level.
      * @return the level modifier of class
      */
     public int getLevel() {
