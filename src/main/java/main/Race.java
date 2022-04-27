@@ -1,5 +1,7 @@
+package main;
+
 /**
- * Race class
+ * main.Race class
  * @author Russell Hill
   */
 class Race {

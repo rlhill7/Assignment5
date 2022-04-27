@@ -1,5 +1,7 @@
+package main;
+
 /**
- * Player class
+ * main.Player class
  */
 
 public class PlayerClass {

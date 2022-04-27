@@ -1,6 +1,8 @@
+package main;
+
 /**
  * Mediator design pattern to run the floors
- * Floor is made up of 4 levels
+ * main.Floor is made up of 4 levels
  * Enemies scale up on each floor
  */
 
@@ -30,7 +32,7 @@ public class FloorMediator {
 
             //loops through the levels on a floor generating enemies to fight
             while (floor.getLevelNumber() < 4) {
-                Enemy testEnemy = enemyFactory.createEnemy("EnemyNormal");
+                Enemy testEnemy = enemyFactory.createEnemy("main.EnemyNormal");
                 testEnemy.changeHealthPoints((2 * floor.getFloorNumber() + floor.getLevelNumber()));
                 System.out.println("You encounter a(n) " + testEnemy);
                 if (battleMediator.battle(player, testEnemy)) {
@@ -54,7 +56,7 @@ public class FloorMediator {
 
             //boss at end of each floor
             System.out.println("You've encountered the boss of the floor. Good luck!");
-            Enemy bossEnemy = enemyFactory.createEnemy("EnemyBoss");
+            Enemy bossEnemy = enemyFactory.createEnemy("main.EnemyBoss");
             if (battleMediator.battle(player, bossEnemy)) {
                 //removes the floor attributes
                 player.setXpModifier(player.getXpModifier()-floor.getFloorXpModifier());

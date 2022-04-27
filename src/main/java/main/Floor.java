@@ -1,5 +1,7 @@
+package main;
+
 /**
- * Floor class to be used by floor mediator
+ * main.Floor class to be used by floor mediator
  */
 public class Floor {
     private int floorNumber = 0;

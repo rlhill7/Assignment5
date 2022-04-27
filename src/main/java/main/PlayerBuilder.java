@@ -1,5 +1,7 @@
+package main;
+
 /**
- * Builder class for the Player
+ * Builder class for the main.Player
  * Uses builder design pattern
  */
 public  class PlayerBuilder {

@@ -1,3 +1,5 @@
+package main;//package java;
+
 /**
  * Mediator pattern to direct the flow of combat.
  */

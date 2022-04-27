@@ -1,7 +1,7 @@
-import java.util.Random;
+package main;
 
 /**
- * Main class to run when executing the game
+ * main.Main class to run when executing the game
  * @author Russell Hill
  */
 
@@ -75,11 +75,11 @@ public class Main {
             FloorMediator floorMediator = new FloorMediator();
             floorMediator.runGame(player);
 
-//            EnemyFactory enemyFactory= new EnemyFactory();
-//            Enemy testEnemy = enemyFactory.createEnemy("EnemyBoss");
+//            main.EnemyFactory enemyFactory= new main.EnemyFactory();
+//            main.Enemy testEnemy = enemyFactory.createEnemy("main.EnemyBoss");
 //            System.out.println(testEnemy);
 
-//            BattleMediator battleMediator = new BattleMediator();
+//            main.BattleMediator battleMediator = new main.BattleMediator();
 //            battleMediator.battle(player, testEnemy);
 //            System.out.println(testEnemy);
 //            System.out.println(player);

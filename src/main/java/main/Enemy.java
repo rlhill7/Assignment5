@@ -1,3 +1,5 @@
+package main;
+
 /**
  * Interface for enemies
  * Implements factory design patterns

@@ -1,15 +1,18 @@
+package main;
+
 /**
- * Normal enemy class factory design pattern
- *
+ * Implementation of interface for enemy
+ * Factory design pattern
  */
 
-public class EnemyNormal implements Enemy {
-    int level = 1;
-    int baseAttack = 2;
+public class EnemyBoss implements Enemy {
+
+    private int level = 5;
+    int baseAttack = 10;
     int baseDefense = 0;
-    int healthPoints = 10;
-    int speed = 1;
-    int xpBaseValue = 10;
+    int healthPoints = 50;
+    int speed = 100;
+    int xpBaseValue = 25;
 
     @Override
     public void attack(){
@@ -19,8 +22,8 @@ public class EnemyNormal implements Enemy {
     @Override
     public String toString(){
         StringBuilder builder = new StringBuilder();
-        builder.append("Enemy [Enemy level is: ").append(level).append(", base attack is: ")
-                .append(baseAttack).append(", base defence is: ").append(baseDefense).append(", rep: ")
+        builder.append("main.Enemy [main.Enemy level is: ").append(level).append(", base attack is: ")
+                .append(baseAttack).append(", base defence is: ").append(baseDefense).append(", rep remaining: ")
                 .append(healthPoints).append("]");
         return builder.toString();
     }
@@ -32,41 +35,41 @@ public class EnemyNormal implements Enemy {
 
     @Override
     public int getLevel(){
-        return level;
+     return this.level;
     }
 
     @Override
     public void setLevel(int levelMod){
-        level += levelMod;
+        this.level += levelMod;
     }
 
     @Override
     public int getBaseAttack(){
-        return baseAttack;
+        return this.baseAttack;
     }
 
     @Override
     public void setBaseAttack(int attackModifier){
-        baseAttack += attackModifier;
+        this.baseAttack += attackModifier;
     }
 
     @Override
     public int getBaseDefense() {
-        return baseDefense;
+        return this.baseDefense;
     }
 
     @Override
     public void setBaseDefense(int defenseModifier) {
-        baseDefense += defenseModifier;
+        this.baseDefense += defenseModifier;
     }
 
     @Override
     public int getHealthPoints(){
-        return healthPoints;
+        return this.healthPoints;
     }
 
     public void changeHealthPoints(int healthModifier) {
-        healthPoints += healthModifier;
+        this.healthPoints += healthModifier;
     }
 
     @Override
@@ -78,5 +81,7 @@ public class EnemyNormal implements Enemy {
     public int getSpeed(){
         return this.speed;
     }
+
+
 
 }

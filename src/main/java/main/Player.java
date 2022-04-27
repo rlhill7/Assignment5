@@ -1,10 +1,10 @@
-import java.util.ArrayList;
+package main;
+
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
- * Player class
+ * main.Player class
  * @author Russell Hill
  */
 public class Player {
@@ -133,7 +133,7 @@ public class Player {
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        builder.append("Player [player level is: ").append(level).append(", race is: ").append(playerRace)
+        builder.append("main.Player [player level is: ").append(level).append(", race is: ").append(playerRace)
                 .append(", class is: ").append(playerClass).append(", instrument is: ")
                 .append(playerInstrument).append(", xp modifier is: ").append(xpModifier).append(", base attack is: ")
                 .append(baseAttack).append(", base defence is: ").append(baseDefence).append(", healthpoints remaining: ").append(healthPoints).append("]");

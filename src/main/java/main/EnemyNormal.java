@@ -1,15 +1,17 @@
-/**
- * Enemy elite
- * factory design pattern
- */
-public class EnemyElite implements Enemy {
+package main;
 
-    int level = 2;
-    int baseAttack = 3;
-    int baseDefense = 5;
-    int healthPoints = 20;
-    int speed = 5;
-    int xpBaseValue;
+/**
+ * Normal enemy class factory design pattern
+ *
+ */
+
+public class EnemyNormal implements Enemy {
+    int level = 1;
+    int baseAttack = 2;
+    int baseDefense = 0;
+    int healthPoints = 10;
+    int speed = 1;
+    int xpBaseValue = 10;
 
     @Override
     public void attack(){
@@ -19,9 +21,9 @@ public class EnemyElite implements Enemy {
     @Override
     public String toString(){
         StringBuilder builder = new StringBuilder();
-        builder.append("Enemy [Enemy level is: ").append(level).append(", base attack is: ")
-                .append(baseAttack).append(", base defence is: ").append(baseDefense)
-                .append(", rep remaining: ").append(healthPoints).append("]");
+        builder.append("main.Enemy [main.Enemy level is: ").append(level).append(", base attack is: ")
+                .append(baseAttack).append(", base defence is: ").append(baseDefense).append(", rep: ")
+                .append(healthPoints).append("]");
         return builder.toString();
     }
 
@@ -29,43 +31,44 @@ public class EnemyElite implements Enemy {
     public int getXpBaseValue(){
         return xpBaseValue;
     }
+
     @Override
     public int getLevel(){
-        return this.level;
+        return level;
     }
 
     @Override
     public void setLevel(int levelMod){
-        this.level += levelMod;
+        level += levelMod;
     }
 
     @Override
     public int getBaseAttack(){
-        return this.baseAttack;
+        return baseAttack;
     }
 
     @Override
     public void setBaseAttack(int attackModifier){
-        this.baseAttack += attackModifier;
+        baseAttack += attackModifier;
     }
 
     @Override
     public int getBaseDefense() {
-        return this.baseDefense;
+        return baseDefense;
     }
 
     @Override
     public void setBaseDefense(int defenseModifier) {
-        this.baseDefense += defenseModifier;
+        baseDefense += defenseModifier;
     }
 
     @Override
     public int getHealthPoints(){
-        return this.healthPoints;
+        return healthPoints;
     }
-    @Override
+
     public void changeHealthPoints(int healthModifier) {
-        this.healthPoints += healthModifier;
+        healthPoints += healthModifier;
     }
 
     @Override

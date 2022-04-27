@@ -1,5 +1,7 @@
+package main;
+
 /**
- * Enemy factory
+ * main.Enemy factory
  */
 
 public class EnemyFactory {
@@ -7,14 +9,14 @@ public class EnemyFactory {
         if (enemyType == null || enemyType.isEmpty())
             return null;
         switch (enemyType) {
-            case "EnemyBoss":
+            case "main.EnemyBoss":
                 return new EnemyBoss();
-            case "EnemyElite":
+            case "main.EnemyElite":
                 return new EnemyElite();
-            case "EnemyNormal":
+            case "main.EnemyNormal":
                 return new EnemyNormal();
             default:
-                throw new IllegalArgumentException("Unknown Enemy Type");
+                throw new IllegalArgumentException("Unknown main.Enemy Type");
 
         }
     }

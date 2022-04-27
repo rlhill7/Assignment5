@@ -1,16 +1,17 @@
+package main;
+
 /**
- * Implementation of interface for enemy
- * Factory design pattern
+ * main.Enemy elite
+ * factory design pattern
  */
+public class EnemyElite implements Enemy {
 
-public class EnemyBoss implements Enemy {
-
-    private int level = 5;
-    int baseAttack = 10;
-    int baseDefense = 0;
-    int healthPoints = 50;
-    int speed = 100;
-    int xpBaseValue = 25;
+    int level = 2;
+    int baseAttack = 3;
+    int baseDefense = 5;
+    int healthPoints = 20;
+    int speed = 5;
+    int xpBaseValue;
 
     @Override
     public void attack(){
@@ -20,9 +21,9 @@ public class EnemyBoss implements Enemy {
     @Override
     public String toString(){
         StringBuilder builder = new StringBuilder();
-        builder.append("Enemy [Enemy level is: ").append(level).append(", base attack is: ")
-                .append(baseAttack).append(", base defence is: ").append(baseDefense).append(", rep remaining: ")
-                .append(healthPoints).append("]");
+        builder.append("main.Enemy [main.Enemy level is: ").append(level).append(", base attack is: ")
+                .append(baseAttack).append(", base defence is: ").append(baseDefense)
+                .append(", rep remaining: ").append(healthPoints).append("]");
         return builder.toString();
     }
 
@@ -30,10 +31,9 @@ public class EnemyBoss implements Enemy {
     public int getXpBaseValue(){
         return xpBaseValue;
     }
-
     @Override
     public int getLevel(){
-     return this.level;
+        return this.level;
     }
 
     @Override
@@ -65,7 +65,7 @@ public class EnemyBoss implements Enemy {
     public int getHealthPoints(){
         return this.healthPoints;
     }
-
+    @Override
     public void changeHealthPoints(int healthModifier) {
         this.healthPoints += healthModifier;
     }
@@ -79,7 +79,5 @@ public class EnemyBoss implements Enemy {
     public int getSpeed(){
         return this.speed;
     }
-
-
 
 }

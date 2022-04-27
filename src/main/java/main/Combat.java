@@ -1,3 +1,5 @@
+package main;
+
 public class Combat {
 
     private int attackPower;
@@ -43,7 +45,7 @@ public class Combat {
             damageInflicted = 0;
         }
 
-        System.out.println("Enemy attacked with a value of " + attackPower + " you defended with a power of "
+        System.out.println("main.Enemy attacked with a value of " + attackPower + " you defended with a power of "
                 + defencePower + ". " + damageInflicted + " points of damage to your rep! [" + player.getHealthPoints()
         +" rep remaining]");
 
