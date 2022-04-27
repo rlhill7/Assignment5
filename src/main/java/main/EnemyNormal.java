@@ -21,7 +21,7 @@ public class EnemyNormal implements Enemy {
     @Override
     public String toString(){
         StringBuilder builder = new StringBuilder();
-        builder.append("main.Enemy [main.Enemy level is: ").append(level).append(", base attack is: ")
+        builder.append("Normal Enemy [Enemy level is: ").append(level).append(", base attack is: ")
                 .append(baseAttack).append(", base defence is: ").append(baseDefense).append(", rep: ")
                 .append(healthPoints).append("]");
         return builder.toString();

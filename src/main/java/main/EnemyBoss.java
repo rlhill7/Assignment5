@@ -9,7 +9,7 @@ public class EnemyBoss implements Enemy {
 
     private int level = 5;
     int baseAttack = 10;
-    int baseDefense = 0;
+    int baseDefense = 10;
     int healthPoints = 50;
     int speed = 100;
     int xpBaseValue = 25;
@@ -22,7 +22,7 @@ public class EnemyBoss implements Enemy {
     @Override
     public String toString(){
         StringBuilder builder = new StringBuilder();
-        builder.append("main.Enemy [main.Enemy level is: ").append(level).append(", base attack is: ")
+        builder.append("Enemy Boss [Boss level is: ").append(level).append(", base attack is: ")
                 .append(baseAttack).append(", base defence is: ").append(baseDefense).append(", rep remaining: ")
                 .append(healthPoints).append("]");
         return builder.toString();

@@ -29,10 +29,14 @@ public class FloorMediator {
             player.setBaseAttack(floor.getFloorAttackPowerModifier());
             player.setXpModifier(player.getXpModifier()+floor.getFloorXpModifier());
             player.setBaseDefence(floor.getFloorDefensePowerModifier());
-
+            Enemy testEnemy;
             //loops through the levels on a floor generating enemies to fight
             while (floor.getLevelNumber() < 4) {
-                Enemy testEnemy = enemyFactory.createEnemy("main.EnemyNormal");
+                if (ran.randomNumberGenerator(0,10) > 7){
+                    testEnemy = enemyFactory.createEnemy("main.EnemyElite");
+                }else {
+                    testEnemy = enemyFactory.createEnemy("main.EnemyNormal");
+                }
                 testEnemy.changeHealthPoints((2 * floor.getFloorNumber() + floor.getLevelNumber()));
                 System.out.println("You encounter a(n) " + testEnemy);
                 if (battleMediator.battle(player, testEnemy)) {

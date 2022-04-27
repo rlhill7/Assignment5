@@ -5,13 +5,13 @@ package main;
  * Uses builder design pattern
  */
 public  class PlayerBuilder {
-    int level;
-    int baseAttack = 0;
-    int baseDefense = 0;
-    String playerRace;
-    String playerClass ;
-    String playerInstrument;
-    double xpModifier = 1.00;
+    public int level;
+    public int baseAttack = 0;
+    public int baseDefense = 0;
+    public String playerRace;
+    public String playerClass ;
+    public String playerInstrument;
+    public double xpModifier = 1.00;
 
 
     public PlayerBuilder(){
